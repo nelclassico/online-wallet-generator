@@ -1,0 +1,163 @@
+/* ── Canvas Wrapper ───────────────────────────────────────────────────── */
+.owg-canvas-wrap {
+    display: inline-block;
+    line-height: 0;          /* elimina espaço inline fantasma abaixo */
+    margin: 0;
+    padding: 0;
+}
+
+/* ── Canvas principal ─────────────────────────────────────────────────── */
+.owg-canvas {
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    background-color: #fff;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;   /* preenchimento pixel-perfect */
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0 !important;
+    border: 0 !important;         /* SEM borda — evita deslocamento de posição */
+    box-sizing: content-box !important;
+    outline: 2px solid #ccc;      /* outline não afeta layout */
+
+}
+
+
+/* A frente fica sempre visível; JS controla a seção verso */
+.owg-canvas-section { display: block; }
+#owg-section-verso  { display: none; }
+
+
+/* ── Abas ─────────────────────────────────────────────────────────────── */
+#owg-tab-bar {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 8px;
+}
+.owg-tab-btn {
+    padding: 6px 18px;
+    cursor: pointer;
+    background: #f0f0f1;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px 4px 0 0;
+    font-weight: 600;
+}
+.owg-tab-btn.active {
+    background: #fff;
+    border-bottom-color: #fff;
+    color: #0073aa;
+}
+
+/* ── Rótulo de seção ──────────────────────────────────────────────────── */
+.owg-section-label {
+    font-weight: 700;
+    font-size: 13px;
+    margin: 12px 0 6px;
+    color: #1d2327;
+}
+
+/* ── Campos arrastáveis ──────────────────────────────────────────────── */
+.owg-draggable {
+    position: absolute !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    user-select: none;
+    z-index: 100;
+    background: rgba(255,255,255,0.5);
+    border: 1px dashed #0073aa;
+    color: #000;
+    box-sizing: border-box !important;
+    cursor: move;
+    display: block !important;
+    overflow: visible;
+}
+
+.owg-label-text {
+    pointer-events: none;
+    display: block;
+    width: 100%;
+    height: 100%;
+    line-height: normal;
+    text-align: left;
+}
+
+.owg-draggable.field-type-image {
+    background: rgba(0,115,170,0.1);
+    border: 2px dashed #0073aa;
+}
+
+/* ── Controles (hover) ───────────────────────────────────────────────── */
+.owg-controls {
+    position: absolute;
+    top: -28px;
+    left: 0;
+    display: none;
+    background: #333;
+    padding: 2px;
+    border-radius: 3px;
+    z-index: 1001;
+    gap: 4px;
+}
+.owg-draggable:hover .owg-controls { display: flex; }
+.owg-controls button, .owg-controls input {
+    padding: 1px 4px;
+    font-size: 10px;
+    height: 18px;
+    cursor: pointer;
+    background: #fff;
+    border: none;
+}
+.owg-remove-field { background: #d63638 !important; color: #fff; }
+
+/* ── Sidebar de botões ───────────────────────────────────────────────── */
+.owg-sidebar {
+    background: #f0f0f1;
+    padding: 15px;
+    border: 1px solid #ccd0d4;
+    margin: 20px 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+/* ── Opção frente/verso ──────────────────────────────────────────────── */
+.owg-frente-verso-toggle {
+    background: #fff8e1;
+    border: 1px solid #ffe082;
+    border-radius: 4px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+}
+
+/* ── Formulário de busca (frontend) ─────────────────────────────────── */
+.owg-search-container {
+    max-width: 400px;
+    margin: 20px 0;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fff;
+}
+.owg-search-container input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+}
+.owg-search-container .button {
+    display: inline-block;
+    padding: 8px 15px;
+    background: #2271b1;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+}
